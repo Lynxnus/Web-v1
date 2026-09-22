@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proyectos | T&amp;F Osorno</title>
+<meta name="description" content="Conoce remodelaciones de cocinas, baños, ampliaciones y locales comerciales realizadas por T&F Osorno en la zona sur de Chile.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/estilos.css">
+<script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+<header class="navbar">
+  <a href="index.html" class="navbar__logo">
+    <span class="navbar__dots"><span></span><span></span><span></span><span></span></span>
+    <span class="navbar__wordmark">T&amp;F<br>Osorno.</span>
+  </a>
+  <nav class="navbar__links" id="nav-principal">
+    <a href="index.html">Inicio</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="proyectos.html" class="is-active">Proyectos</a>
+    <a href="contacto.html">Contacto</a>
+  </nav>
+  <button class="navbar__menu-toggle" data-menu-toggle aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-principal">
+    <span></span><span></span><span></span>
+  </button>
+  <a href="contacto.html" class="btn btn--light">Solicitar cotización</a>
+</header>
+
+<section class="projects">
+  <p class="label label--center">Osorno y el Sur de Chile</p>
+  <h1 class="projects__title">Proyectos</h1>
+  <p class="projects__desc">Una muestra de remodelaciones residenciales y comerciales ejecutadas por nuestro equipo. Las fotografías se están incorporando; cada ficha ya está lista para recibir su imagen final.</p>
+
+  <div class="filtros reveal" role="group" aria-label="Filtrar proyectos por categoría">
+    <button class="filtro activo" data-categoria="todos">Todos</button>
+    <button class="filtro" data-categoria="cocina">Cocinas</button>
+    <button class="filtro" data-categoria="bano">Baños</button>
+    <button class="filtro" data-categoria="ampliacion">Ampliaciones</button>
+    <button class="filtro" data-categoria="comercial">Comercial</button>
+    <button class="filtro" data-categoria="muebleria">Mueblería</button>
+  </div>
+
+  <div class="projects__grid">
+
+    <article class="project-card reveal" data-categoria="cocina">
+      <div class="project-card__media">
+        <img class="hero__bg-marcador" style="object-fit:cover;" src="img/proyectos/proyecto-1.jpg" alt="Cocina integrada, Osorno">
+        <span class="pill">Cocina</span>
+        <span class="project-card__arrow">↗</span>
+      </div>
+      <h3>Cocina integrada, Osorno</h3>
+      <p class="muted">Muebles a medida con isla central y optimización de espacio de guardado.</p>
+    </article>
+
+    <article class="project-card reveal" data-categoria="bano">
+      <div class="project-card__media">
+        <img class="hero__bg-marcador" style="object-fit:cover;" src="img/proyectos/proyecto-2.jpg.jpg" alt="Baño principal renovado">
+        <span class="pill">Baño</span>
+        <span class="project-card__arrow">↗</span>
+      </div>
+      <h3>Baño principal renovado</h3>
+      <p class="muted">Cambio completo de recinto húmedo con vanitorio en madera nativa.</p>
+    </article>
+
+    <article class="project-card reveal" data-categoria="ampliacion">
+      <div class="project-card__media">
+        <img class="hero__bg-marcador" style="object-fit:cover;" src="img/proyectos/proyecto-3.jpg.jpg" alt="Ampliación de living-comedor">
+        <span class="pill">Ampliación</span>
+        <span class="project-card__arrow">↗</span>
+      </div>
+      <h3>Ampliación de living-comedor</h3>
+      <p class="muted">Cierre de terraza para ganar un nuevo espacio de estar integrado a la casa.</p>
+    </article>
+
+    <article class="project-card reveal" data-categoria="comercial">
+      <div class="project-card__media">
+        <img class="hero__bg-marcador" style="object-fit:cover;" src="img/proyectos/proyecto-4.jpg.jpg" alt="Remodelación de oficina">
+        <span class="pill">Comercial</span>
+        <span class="project-card__arrow">↗</span>
+      </div>
+      <h3>Remodelación de oficina</h3>
+      <p class="muted">Divisiones y mobiliario a medida para atención de público.</p>
+    </article>
+
+    <article class="project-card reveal" data-categoria="muebleria">
+      <div class="project-card__media">
+        <img class="hero__bg-marcador" style="object-fit:cover;" src="img/proyectos/proyecto-5.jpg.jpg" alt="Closet a medida, dormitorio principal">
+        <span class="pill">Mueblería</span>
+        <span class="project-card__arrow">↗</span>
+      </div>
+      <h3>Closet a medida, dormitorio principal</h3>
+      <p class="muted">Sistema de closet fabricado en taller propio, ajustado al espacio disponible.</p>
+    </article>
+
+    <article class="project-card reveal" data-categoria="cocina">
+      <div class="project-card__media">
+        <img class="hero__bg-marcador" style="object-fit:cover;" src="img/proyectos/proyecto-6.jpg" alt="Cocina americana, casa familiar">
+        <span class="pill">Cocina</span>
+        <span class="project-card__arrow">↗</span>
+      </div>
+      <h3>Cocina americana, casa familiar</h3>
+      <p class="muted">Rediseño de cocina cerrada a formato americano, integrada con el comedor.</p>
+    </article>
+
+    <article class="project-card reveal" data-categoria="bano">
+      <div class="project-card__media">
+        <img class="hero__bg-marcador" style="object-fit:cover;" src="img/proyectos/proyecto-7.jpg" alt="Baño de visitas, remodelación express">
+        <span class="pill">Baño</span>
+        <span class="project-card__arrow">↗</span>
+      </div>
+      <h3>Baño de visitas, remodelación express</h3>
+      <p class="muted">Actualización de terminaciones y griferías en un baño de menor tamaño.</p>
+    </article>
+
+    <article class="project-card reveal" data-categoria="comercial">
+      <div class="project-card__media">
+        <img class="hero__bg-marcador" style="object-fit:cover;" src="img/proyectos/proyecto-8.jpg" alt="Local comercial, atención a público">
+        <span class="pill">Comercial</span>
+        <span class="project-card__arrow">↗</span>
+      </div>
+      <h3>Local comercial, atención a público</h3>
+      <p class="muted">Remodelación completa de mesón, iluminación y mobiliario para un local de barrio.</p>
+    </article>
+
+    <article class="project-card reveal" data-categoria="ampliacion">
+      <div class="project-card__media">
+        <img class="hero__bg-marcador" style="object-fit:cover;" src="img/proyectos/proyecto-9.jpg" alt="Segundo dormitorio, ampliación">
+        <span class="pill">Ampliación</span>
+        <span class="project-card__arrow">↗</span>
+      </div>
+      <h3>Segundo dormitorio, ampliación</h3>
+      <p class="muted">Nueva habitación construida sobre base existente, con terminaciones acordes a la vivienda.</p>
+    </article>
+
+    <article class="project-card reveal" data-categoria="muebleria">
+      <div class="project-card__media">
+        <img class="hero__bg-marcador" style="object-fit:cover;" src="img/proyectos/proyecto-10.jpg" alt="Escritorio y repisas a medida">
+        <span class="pill">Mueblería</span>
+        <span class="project-card__arrow">↗</span>
+      </div>
+      <h3>Escritorio y repisas a medida</h3>
+      <p class="muted">Estación de trabajo fabricada en madera maciza para espacio de home office.</p>
+    </article>
+
+  </div>
+</section>
+
+<section class="stats-cta">
+  <div class="stats-cta__head reveal" style="text-align:center; padding-bottom:64px;">
+    <p class="label" style="color:#999;">¿Quieres un resultado como estos?</p>
+    <h2 style="margin-left:auto; margin-right:auto;">Cuéntanos tu proyecto</h2>
+    <p class="muted" style="margin:0 auto;">Coordinamos una visita técnica sin costo.</p>
+    <a href="contacto.html" class="btn btn--light" style="margin-top:28px;">Solicitar cotización</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="site-footer__grid">
+    <div>
+      <span class="navbar__wordmark" style="color:var(--ink);">T&amp;F<br>Osorno.</span>
+      <p class="muted" style="margin-top:12px;">Remodelación residencial y comercial en Osorno y el Sur de Chile.</p>
+    </div>
+    <nav>
+      <p class="label">Navegación</p>
+      <a href="index.html">Inicio</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="proyectos.html">Proyectos</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+    <div>
+      <p class="label">Contacto</p>
+      <a href="tel:+56964591064">+56 9 6459 1064</a>
+      <a href="mailto:ftraro@gmail.com">ftraro@gmail.com</a>
+      <a href="https://instagram.com/tyf_mueblesosorno" target="_blank" rel="noopener">@tyf_mueblesosorno</a>
+    </div>
+  </div>
+  <div class="site-footer__bottom">
+    <p>&copy; <span id="anio-actual">2026</span> T&amp;F Osorno. Todos los derechos reservados.</p>
+    <p>Osorno, Chile</p>
+  </div>
+</footer>
+
+<a href="https://wa.me/56964591064" target="_blank" rel="noopener" class="wsp-flotante" aria-label="Escribir por WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.13h-.01c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.36c0-4.53 3.69-8.22 8.23-8.22 2.2 0 4.26.86 5.82 2.41a8.17 8.17 0 0 1 2.41 5.82c0 4.53-3.69 8.21-8.2 8.21zm4.51-6.15c-.25-.12-1.46-.72-1.69-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.78.96-.14.16-.29.18-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.22-1.46-1.37-1.7-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.35-.77-1.85-.2-.48-.41-.42-.56-.43-.14-.01-.31-.01-.48-.01-.16 0-.43.06-.66.31-.23.25-.87.85-.87 2.07 0 1.22.89 2.4 1.01 2.56.12.16 1.75 2.67 4.24 3.74.59.26 1.06.41 1.42.52.6.19 1.14.16 1.57.1.48-.07 1.46-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.16-.48-.28z"/></svg>
+</a>
+
+<script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,448 @@
+/* ============================================================
+   T&F Osorno — Sistema de diseño "Foundix"
+   Editorial arquitectónico: alto contraste, tipografía en
+   mayúsculas, esquinas rectas, imágenes desaturadas.
+   ============================================================ */
+
+:root{
+  --bg: #ffffff;
+  --ink: #0a0a0a;
+  --ink-soft: #1a1a1a;
+  --paper: #f5f5f3;
+  --line: #d9d9d6;
+  --muted: #6b6b68;
+
+  --font-display: 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+
+  --gap: 24px;
+  --container: 1320px;
+  --section-y: 96px;
+}
+
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink-soft);
+  background: var(--bg);
+  line-height: 1.6;
+  font-size: 16px;
+}
+img{ max-width: 100%; display: block; }
+a{ color: inherit; text-decoration: none; }
+h1, h2, h3{ font-family: var(--font-display); margin: 0; }
+button{ font-family: var(--font-body); cursor: pointer; }
+
+.label{
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 12px;
+}
+.label--center{ text-align: center; }
+.muted{ color: var(--muted); }
+
+a:focus-visible, button:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible{
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+  .js .reveal{ opacity: 1 !important; transform: none !important; }
+  .ticker__track{ animation: none !important; }
+}
+
+.btn{
+  display: inline-block;
+  padding: 14px 28px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  transition: opacity 0.15s ease;
+}
+.btn:hover{ opacity: 0.82; }
+.btn--light{ background: #fff; color: var(--ink); }
+.btn--dark{ background: var(--ink); color: #fff; }
+.btn--block{ width: 100%; }
+.btn--outline{ background: transparent; color: var(--ink); border: 1px solid var(--ink); }
+
+/* 1. NAVBAR --------------------------------------------------- */
+.navbar{
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  background: var(--ink);
+  color: #fff;
+  padding: 14px 32px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.navbar__logo{ display: flex; align-items: center; gap: 12px; }
+.navbar__dots{
+  display: grid;
+  grid-template-columns: repeat(2, 4px);
+  grid-template-rows: repeat(2, 4px);
+  gap: 4px;
+  flex-shrink: 0;
+}
+.navbar__dots span{ width: 4px; height: 4px; background: #fff; border-radius: 50%; }
+.navbar__wordmark{ font-size: 15px; font-weight: 600; line-height: 1.15; }
+.navbar__links{ display: flex; gap: 24px; margin: 0 auto; font-size: 14px; }
+.navbar__links a.is-active{ text-decoration: underline; text-underline-offset: 4px; }
+.navbar__menu-toggle{ display: none; background: none; border: none; color: #fff; }
+.navbar__menu-toggle span{ display: block; width: 22px; height: 1.5px; background: #fff; margin: 5px 0; }
+
+@media (max-width: 900px){
+  .navbar__links{
+    display: none;
+    position: fixed;
+    top: 58px; left: 0; right: 0;
+    background: var(--ink);
+    flex-direction: column;
+    gap: 0;
+    margin: 0;
+    padding: 8px 0;
+    border-top: 1px solid #2a2a2a;
+  }
+  .navbar__links.is-open{ display: flex; }
+  .navbar__links a{ padding: 14px 32px; border-bottom: 1px solid #1e1e1e; }
+  .navbar__menu-toggle{ display: block; margin-left: auto; }
+  .navbar .btn{ display: none; }
+}
+
+/* 2. HERO ------------------------------------------------------*/
+.hero{
+  position: relative;
+  min-height: 88vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 48px;
+  overflow: hidden;
+}
+.hero__bg-marcador{
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  background:
+    repeating-linear-gradient(135deg, #d9d9d6, #d9d9d6 2px, #ececea 2px, #ececea 34px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero__bg-marcador span{
+  font-family: var(--font-body);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: rgba(255,255,255,0.85);
+  padding: 8px 16px;
+}
+.hero__overlay{
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(10,10,10,.15), rgba(10,10,10,.55));
+}
+.hero__title{
+  position: relative;
+  color: #fff;
+  font-size: clamp(32px, 6vw, 72px);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1.05;
+  max-width: 640px;
+}
+.hero__card{
+  position: relative;
+  margin-left: auto;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  background: #fff;
+  max-width: 620px;
+  margin-top: 32px;
+}
+.hero__card p{ padding: 28px; font-size: 15px; margin: 0; }
+.hero__card .btn{ background: var(--ink); color: #fff; padding: 0 32px; display: flex; align-items: center; }
+
+@media (max-width: 900px){
+  .hero{ padding: 24px; align-items: flex-end; }
+  .hero__card{ grid-template-columns: 1fr; }
+}
+
+/* 3. TICKER ------------------------------------------------------*/
+.ticker{
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 18px 0;
+}
+.ticker__track{
+  display: inline-flex;
+  gap: 24px;
+  font-size: 15px;
+  animation: marquee 28s linear infinite;
+}
+@keyframes marquee{
+  from{ transform: translateX(0); }
+  to{ transform: translateX(-50%); }
+}
+
+/* 4. INTRO + CITA ---------------------------------------------*/
+.intro{ padding: var(--section-y) 32px; max-width: var(--container); margin: 0 auto; }
+.intro__grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 48px;
+  border-top: 1px solid var(--line);
+  padding-top: 32px;
+  margin-bottom: 64px;
+}
+.intro__col p:last-child{ font-size: 15px; }
+.intro__col--stat{ text-align: right; }
+.stat-number{ font-size: 56px; font-weight: 500; margin: 0; }
+.stat-number sup{ font-size: 24px; }
+.stat-label{ font-size: 12px; text-transform: uppercase; color: var(--muted); letter-spacing: .06em; }
+
+.intro__feature{
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 0;
+}
+.intro__feature .hero__bg-marcador{ position: static; min-height: 360px; }
+.quote{
+  background: var(--ink);
+  color: #fff;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: center;
+}
+.quote__text{ font-size: 22px; font-weight: 500; margin: 0; }
+.quote__author{ display: flex; align-items: center; gap: 12px; }
+.quote__avatar{
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: #2a2a2a;
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+.quote__name{ margin: 0; font-size: 13px; text-transform: uppercase; letter-spacing: .06em; }
+.quote__role{ margin: 0; font-size: 13px; color: #999; }
+
+@media (max-width: 900px){
+  .intro__grid{ grid-template-columns: 1fr; }
+  .intro__col--stat{ text-align: left; }
+  .intro__feature{ grid-template-columns: 1fr; }
+}
+
+/* 5. PROYECTOS -------------------------------------------------*/
+.projects{ padding: var(--section-y) 32px; max-width: var(--container); margin: 0 auto; text-align: center; }
+.projects__title{
+  font-size: clamp(36px, 6.5vw, 76px);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 16px 0;
+  margin: 8px 0 24px;
+}
+.projects__desc{ max-width: 560px; margin: 0 auto 48px; color: var(--muted); }
+.projects__grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--gap);
+  text-align: left;
+}
+.project-card__media{ position: relative; aspect-ratio: 4/5; overflow: hidden; }
+.project-card__media .hero__bg-marcador{ position: absolute; }
+.pill{
+  position: absolute; top: 12px; left: 12px;
+  background: #fff; padding: 6px 12px;
+  font-size: 11px; text-transform: uppercase; letter-spacing: .06em;
+  z-index: 2;
+}
+.project-card__arrow{
+  position: absolute; bottom: 12px; right: 12px;
+  width: 32px; height: 32px;
+  background: var(--ink); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 2;
+}
+.project-card h3{ font-size: 18px; margin: 16px 0 4px; }
+
+.filtros{ display: flex; gap: 0; flex-wrap: wrap; justify-content: center; margin-bottom: 48px; border: 1px solid var(--ink); }
+.filtro{
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 12px 20px;
+  border: none;
+  border-right: 1px solid var(--ink);
+  background: #fff;
+  color: var(--ink);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.filtro:last-child{ border-right: none; }
+.filtro.activo{ background: var(--ink); color: #fff; }
+.filtro:not(.activo):hover{ background: var(--paper); }
+
+@media (max-width: 900px){
+  .projects__grid{ grid-template-columns: 1fr; }
+  .filtros{ border: none; flex-direction: column; width: 100%; }
+  .filtro{ border: 1px solid var(--ink); border-top: none; }
+  .filtro:first-child{ border-top: 1px solid var(--ink); }
+}
+
+/* 6. ESTADÍSTICAS + CTA -----------------------------------------*/
+.stats-cta{ background: var(--ink); color: #fff; }
+.stats-cta__head{ max-width: var(--container); margin: 0 auto; padding: 64px 32px 32px; }
+.stats-cta__head h2{ font-size: clamp(28px, 4vw, 44px); text-transform: uppercase; letter-spacing: -0.01em; margin: 8px 0 16px; max-width: 640px; }
+.stats-cta__row{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  border-top: 1px solid #2a2a2a;
+}
+.stat-cell{ padding: 32px 24px; border-right: 1px solid #2a2a2a; }
+.stat-cell:last-child{ border-right: none; }
+.stat-cell--light{ background: #fff; color: var(--ink); display: flex; align-items: center; font-weight: 500; text-transform: uppercase; font-size: 14px; letter-spacing: 0.04em; }
+.stat-cell__label{ font-size: 13px; color: #999; margin: 0 0 8px; text-transform: uppercase; letter-spacing: 0.04em; }
+.stat-cell__number{ font-size: 34px; margin: 0; }
+.stats-cta__image{ width: 100%; height: 340px; }
+.stats-cta__image .hero__bg-marcador{ position: static; height: 100%; }
+
+@media (max-width: 900px){
+  .stats-cta__row{ grid-template-columns: 1fr 1fr; }
+  .stat-cell{ border-bottom: 1px solid #2a2a2a; }
+}
+
+/* 7. FOOTER ------------------------------------------------------*/
+.site-footer{ background: var(--paper); padding: 64px 32px 24px; }
+.site-footer__grid{
+  max-width: var(--container); margin: 0 auto;
+  display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px;
+}
+.site-footer nav, .site-footer div{ display: flex; flex-direction: column; gap: 8px; }
+.site-footer nav a:hover, .site-footer div a:hover{ text-decoration: underline; text-underline-offset: 3px; }
+.site-footer__bottom{
+  max-width: var(--container); margin: 48px auto 0;
+  border-top: 1px solid var(--line); padding-top: 16px;
+  font-size: 13px; color: var(--muted);
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+}
+
+@media (max-width: 900px){
+  .site-footer__grid{ grid-template-columns: 1fr; }
+}
+
+/* ---------- Página interior: cabecera simple ---------- */
+.cabecera-pagina{ padding: 72px 32px 0; max-width: var(--container); margin: 0 auto; }
+.cabecera-pagina p{ max-width: 62ch; color: var(--muted); margin-top: 18px; font-size: 16px; }
+
+/* ---------- Servicios (grilla de tarjetas editorial) ---------- */
+.grilla-servicios{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+.tarjeta-servicio{
+  padding: 36px 32px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.tarjeta-servicio .num{ font-size: 13px; color: var(--muted); display: block; margin-bottom: 18px; letter-spacing: 0.04em; }
+.tarjeta-servicio h3{ font-size: 19px; text-transform: uppercase; letter-spacing: -0.01em; margin-bottom: 10px; }
+.tarjeta-servicio p{ font-size: 14.5px; color: var(--muted); margin: 0; }
+
+@media (max-width: 900px){
+  .grilla-servicios{ grid-template-columns: 1fr; }
+}
+
+/* ---------- Cobertura (panel bordeado) ---------- */
+.panel-cobertura{
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 56px 32px;
+  text-align: center;
+  max-width: var(--container);
+  margin: 0 auto;
+}
+.panel-cobertura h2{ text-transform: uppercase; font-size: clamp(24px, 3.5vw, 34px); margin: 12px 0 16px; }
+.panel-cobertura p{ max-width: 60ch; margin: 0 auto; color: var(--muted); }
+
+/* ---------- Formulario de contacto ---------- */
+.pagina-contacto-grilla{
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 64px;
+  align-items: start;
+  padding: var(--section-y) 32px;
+  max-width: var(--container);
+  margin: 0 auto;
+}
+.formulario{ display: grid; gap: 22px; }
+.campo{ display: flex; flex-direction: column; gap: 8px; }
+.campo label{ font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.campo input, .campo select, .campo textarea{
+  font-family: var(--font-body);
+  font-size: 15px;
+  padding: 14px;
+  background: #fff;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+}
+.campo textarea{ resize: vertical; min-height: 120px; }
+.fila-dos{ display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+.info-contacto-lista{ display: grid; gap: 26px; margin-top: 8px; padding-top: 32px; border-top: 1px solid var(--line); }
+.info-contacto-item a, .info-contacto-item p{ font-size: 17px; color: var(--ink); font-weight: 500; margin: 0; }
+.info-contacto-item a:hover{ text-decoration: underline; text-underline-offset: 3px; }
+
+.mapa-marcador{
+  aspect-ratio: 16/6;
+  margin: 0 32px 96px;
+  max-width: calc(var(--container) - 0px);
+}
+.mapa-marcador-wrap{ max-width: var(--container); margin: 0 auto; padding: 0 32px 96px; }
+.mapa-marcador .hero__bg-marcador{ position: static; height: 100%; }
+
+@media (max-width: 900px){
+  .pagina-contacto-grilla{ grid-template-columns: 1fr; }
+  .fila-dos{ grid-template-columns: 1fr; }
+}
+
+/* ---------- WhatsApp flotante ---------- */
+.wsp-flotante{
+  position: fixed;
+  bottom: 26px;
+  right: 26px;
+  z-index: 200;
+  background: #25D366;
+  color: #fff;
+  width: 54px; height: 54px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+  transition: transform 0.18s ease;
+}
+.wsp-flotante:hover{ transform: scale(1.06); }
+
+/* ---------- Revelado al hacer scroll ---------- */
+.js .reveal{
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.js .reveal.visible{ opacity: 1; transform: translateY(0); }
